@@ -1,6 +1,8 @@
 $dot-color: #79C3CD;
 $dot-size: 18px;
-$circle-size: 80px;
+$circle-size: 55px;
+
+$animation-time: 1.5s;
 
 * {
 	margin: 0;
@@ -26,15 +28,31 @@ body {
 	height: $dot-size;
 	border-radius: 50%;
 	background: $dot-color;
+	border: 1px solid #fff;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 
 	transform-origin: ($dot-size / 2) $circle-size;
+	transform: translateY(-$circle-size) rotate(0deg);
 }
 
 @for $i from 0 to 10 {
-	.dot:nth-child(#{$i + 1} ) {
-		transform: translateY(-$circle-size) rotate($i * 36deg);
+	@keyframes dot-#{$i + 1} {
+		0% {
+			transform: translateY(-$circle-size) rotate(0deg);
+		}
+
+		50% {
+			transform: translateY(-$circle-size) rotate($i * 36deg);
+		}
+
+		100% {
+			transform: translateY(-$circle-size) rotate(360deg);
+		}
+	}
+
+	.dot:nth-child(#{$i + 1}) {
+		animation: dot-#{$i + 1} $animation-time ease infinite;
 	}
 }
