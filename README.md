@@ -1,6 +1,6 @@
 # CSS loader with Gooey Effect
 
-<div style="width: 400px;">
+<div markdown="1" style="width: 400px;">
 ![animation.gif](CSS loader)
 </div>
 
