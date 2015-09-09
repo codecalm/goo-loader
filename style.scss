@@ -1,7 +1,40 @@
+$dot-color: #79C3CD;
+$dot-size: 18px;
+$circle-size: 80px;
+
 * {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	outline: 0;
 	box-sizing: border-box;
+}
+
+body {
+
+}
+
+.wrapper {
+	background: #F3F1EF;
+	width: 400px;
+	height: 300px;
+	position: relative;
+}
+
+.dot {
+	width: $dot-size;
+	height: $dot-size;
+	border-radius: 50%;
+	background: $dot-color;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	transform-origin: ($dot-size / 2) $circle-size;
+}
+
+@for $i from 0 to 10 {
+	.dot:nth-child(#{$i + 1} ) {
+		transform: translateY(-$circle-size) rotate($i * 36deg);
+	}
 }
