@@ -18,6 +18,7 @@ gulp.task('sass', function () {
         .pipe(connect.reload());
 });
 
+
 gulp.task('html', function () {
     gulp.src('./*.html')
         .pipe(connect.reload());
@@ -31,8 +32,8 @@ gulp.task('watch', ['sass'], function () {
 gulp.task('webserver', function() {
     connect.server({
         livereload: true,
-        root: ['.']
+        post: 1234
     });
 });
 
-gulp.task('connect', ['webserver', 'watch']);
+gulp.task('serve', ['webserver', 'watch']);
